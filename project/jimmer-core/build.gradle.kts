@@ -93,6 +93,10 @@ publishing {
     }
 }
 
-signing {
-    sign(publishing.publications["mavenJava"])
+tasks.getByName<Test>("test") {
+    useJUnitPlatform()
+}
+
+tasks.withType<Javadoc>{
+    options.encoding = "UTF-8"
 }
